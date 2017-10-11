@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+# TODO fill and rename to args.config
+
+LDAP_ADMIN_LOGIN=LDAP admin user
+LDAP_ADMIN_PASSWORD=LDAP "admin" user password
+LDAP_READONLY_USER_USERNAME=LDAP read only user
+LDAP_READONLY_USER_PASSWORD=LDAP read only password

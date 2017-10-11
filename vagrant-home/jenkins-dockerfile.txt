@@ -1,0 +1,3 @@
+FROM jenkins/jenkins:2.83
+ADD /jenkins-dockerfile-startScript.sh /jenkins-dockerfile-startScript.sh
+RUN bash /jenkins-dockerfile-startScript.sh

@@ -9,12 +9,13 @@ if [ -z  "`docker network inspect net_hosting | grep net_hosting`" ]; then
 	docker network create net_hosting
 fi
 
-source args.config
+my_dir="$(dirname "$0")"
+source "$my_dir/args.config"
 
 docker run --net net_hosting  --restart=always \
 --name openldap-service \
 --hostname ldap-service \
---env LDAP_ADMIN_PASSWORD="$pass" \
+--env LDAP_ADMIN_PASSWORD="$LDAP_ADMIN_PASSWORD" \
 --volume /data/openldap/slapd/database:/var/lib/ldap \
 --volume /data/openldap/slapd/config:/etc/ldap/slapd.d \
 --detach osixia/openldap:1.1.8
@@ -27,7 +28,7 @@ PHPLDAP_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" openldap-phpld
 
 echo "Go to: https://$PHPLDAP_IP"
 echo "Login DN: cn=admin,dc=alf,dc=digital"
-echo "Password: $pass"
+echo "Password: $LDAP_ADMIN_PASSWORD"
 
 
 

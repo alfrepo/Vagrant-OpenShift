@@ -1,0 +1,2 @@
+You may put artefacts here, which will be mounted into the Vagrant VM under /root/vagrant-artifacts.
+For example you may put an OpenShift installer here, if you dont want to redownload it, when reprovisioning the VM.
